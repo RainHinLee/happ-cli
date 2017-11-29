@@ -1,0 +1,23 @@
+1、happ目录结构
+
+	desktop: pc端代码；
+		src:
+			components: 子文件（public文件除外）将分别打包[name].bundle.js 和  [name].bundle.css文件
+				public: 公用组件;
+				home : home页面组件文件,每个页面文件需要一个main.js 作为入口文件
+			store:fetch相关接口文件;
+			utils: 工具函数集;
+				
+		statics: 静态文件
+		theme: stylus变量文件
+		views: html页面文件
+			
+	mobile: 移动端代码；
+	
+
+	
+//---git 操作
+
+git add .
+git commit -m "first commit"
+git push -u origin master

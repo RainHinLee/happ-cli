@@ -1,0 +1,18 @@
+{
+  "name": "happ-cli",
+  "version": "1.0.1",
+  "description": "汉桥教育webapp构建工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RainHinLee(qq:1064202230)",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.12.2",
+    "fs-extra": "^4.0.2"
+  },
+  "bin":{
+  	"happ":"./bin/index.js"
+  }
+}
