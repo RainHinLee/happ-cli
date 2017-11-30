@@ -11,7 +11,8 @@ cmder.version(config.version)
 	 .option('-a,--all','创建移动端和pc端app')
 	 .command('<projectName> ', '创建双端app')
 	 .action((cmd,options)=>{
-		let app = `${process.cwd()}/${cmd}`
+		let app = `${process.cwd()}/${cmd}`;
+
 		fs.ensureDirSync(app);
 		
 		if(cmder.mobile){
@@ -28,7 +29,7 @@ cmder.version(config.version)
 		};
 
 		exec.server(app);
-		
+		exec.notify(app);
 			
 	 })
 	 .parse(process.argv);

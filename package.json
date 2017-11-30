@@ -1,6 +1,6 @@
 {
   "name": "happ-cli",
-  "version": "1.0.1",
+  "version": "1.0.6",
   "description": "汉桥教育webapp构建工具",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "commander": "^2.12.2",
     "fs-extra": "^4.0.2"
   },
-  "bin":{
-  	"happ":"./bin/index.js"
+  "bin": {
+    "happ": "./bin/index.js"
   }
 }
