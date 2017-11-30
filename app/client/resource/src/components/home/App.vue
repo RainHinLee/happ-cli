@@ -2,6 +2,7 @@
 	<div>
 		<h-header></h-header>
 		<div>	
+			<img width="100px" src="../../../statics/images/lauch.png" alt="" />
 			<i class='name' @click='click'>{{name}}</i>
 			<a href="/user">user</a>
 		</div>

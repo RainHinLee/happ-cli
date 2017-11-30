@@ -136,7 +136,17 @@ module.exports = {
                 test: /\.styl/,
                 exclude: /node_modules/,
                 loader: "stylus-loader",
-            },             
+            }, 
+
+			{
+				test: /\.(png|jpg|gif)$/,
+				loader:'url-loader',
+				options: {
+              		limit: 8192000,
+              		name : "/[path][name].[ext]",
+              		
+            	}
+			},
 		]	
 	},
 	

@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "commander": "^2.12.2",
-    "fs-extra": "^4.0.2"
+    "fs-extra": "^4.0.2",
+    "url-loader": "^0.6.2"
   },
   "bin": {
     "happ": "./bin/index.js"
