@@ -47,7 +47,7 @@ try{
 
 try{
 	let json2 = fs.readJsonSync(desktopRouterJson);
-	clientRouters.mobile = json2;
+	clientRouters.desktop = json2;
 }catch(e){
 	console.log(e.message);
 }
