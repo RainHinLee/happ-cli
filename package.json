@@ -1,6 +1,6 @@
 {
   "name": "happ-cli",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "汉桥教育webapp构建工具",
   "main": "index.js",
   "scripts": {

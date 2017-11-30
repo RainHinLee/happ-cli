@@ -39,17 +39,17 @@ const clientRouters = {
 
 //---防止json文件为空，报错
 try{
-	let josn1 = fs.readJsonSync(mobileRouterJson);
+	let json1 = fs.readJsonSync(mobileRouterJson);
 	clientRouters.mobile = json1;
 }catch(e){
-	
+	console.log(e.message);
 };
 
 try{
-	let josn2 = fs.readJsonSync(desktopRouterJson);
+	let json2 = fs.readJsonSync(desktopRouterJson);
 	clientRouters.mobile = json2;
 }catch(e){
-	
+	console.log(e.message);
 }
 
 const serverRouters = require('./routers/index.js');
