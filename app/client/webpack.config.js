@@ -50,7 +50,7 @@ if(!['mobile','desktop'].includes(platform)){
  //--配置
 module.exports = {
 	entry:Object.assign({ //--入口文件
-		"vendor":['vue']
+		"vendor":['vue','vuex','vue-router']
 	},getEntryFiles()),
 	
 	output:{ //---文件输出
@@ -112,8 +112,7 @@ module.exports = {
 					from : path.resolve(__dirname,`./${platform}/router.json`),
 					to: path.resolve(__dirname,`../server/platform/${platform}/`)
 				},				
-	
-		]),	
+		]),
 	],
 	
 	module:{ //--解析规则
@@ -124,8 +123,16 @@ module.exports = {
 				options:{
 					extractCSS: true,
 				}
+			},
+			
+			{
+				test: /\.css/,
+				use:[
+					{loader : "style-loader"},
+					{loader : "css-loader"},
+				]
 			},	
-
+			
             {
                 test: /\.js/,
                 exclude: /node_modules/,
@@ -139,7 +146,7 @@ module.exports = {
             }, 
 
 			{
-				test: /\.(png|jpg|gif)$/,
+				test: /\.(png|jpg|gif|eot|ttf|woff|svg)$/,
 				loader:'url-loader',
 				options: {
               		limit: 8192000,
@@ -155,7 +162,6 @@ module.exports = {
 			'vue': 'vue/dist/vue.js'
 		}
 	}
-
 }
 
 
