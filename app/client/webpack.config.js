@@ -14,11 +14,11 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 let platform = 'none';
 
-if(process.argv.includes('--env.mobile')){
+if(process.argv.includes('--env.m')){
 	platform = 'mobile';
 }
 
-if(process.argv.includes('--env.desktop')){
+if(process.argv.includes('--env.d')){
 	platform = 'desktop';
 }
 
