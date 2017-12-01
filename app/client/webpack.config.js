@@ -38,7 +38,7 @@ function getEntryFiles(){
 //---提示，
 
 if(!['mobile','desktop'].includes(platform)){
-	let message =  `不支持watch ${platform} -w 命令; \n 移动端请使用: 	watch --env.mobile --watch \n pc端请使用: watch --env.desktop --watch \n`
+	let message =  `不支持watch ${platform} -w 命令; \n 移动端请使用: 	watch --env.m --watch \n pc端请使用: watch --env.d --watch \n`
 	console.warn(message);
 	module.exports ={
 		output:{filename : "[name].bundle.js"}
