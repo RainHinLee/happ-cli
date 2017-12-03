@@ -8,9 +8,7 @@ module.exports.gets = {
 
 
 module.exports.posts = {
-	'': require('./home/index.js').post
-	
-	
+	'/user/login': require('./home/index.js').post
 }
 
 
