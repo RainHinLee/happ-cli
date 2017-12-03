@@ -9,8 +9,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 /*--webpack命令 ，
- * 	watch --env.mobile --watch   打包mobile文件夹代码，
- * 	watch --env.desktop --watch   发布desktop文件夹代码 --*/
+ * 	watch --env.m --watch   打包mobile文件夹代码，
+ * 	watch --env.d --watch   发布desktop文件夹代码 --*/
 
 let platform = 'none';
 
@@ -32,6 +32,7 @@ function getEntryFiles(){
 			result[item] = `./${platform}/src/components/${item}/main.js`;
 		};
 	});
+	
 	return result;
 };
 
@@ -50,7 +51,7 @@ if(!['mobile','desktop'].includes(platform)){
  //--配置
 module.exports = {
 	entry:Object.assign({ //--入口文件
-		"vendor":['vue','vuex','vue-router']
+		"vendor":['vue','vuex','vue-router','element-ui']
 	},getEntryFiles()),
 	
 	output:{ //---文件输出
@@ -92,8 +93,6 @@ module.exports = {
 		      },
 		    },
 		 }),
-		 
-		 
 		 
 		new CopyWebpackPlugin([ //--拷贝静态文件
 				{
@@ -159,9 +158,8 @@ module.exports = {
 	
 	resolve: { //--处理报错： [Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
 		alias: {
-			'vue': 'vue/dist/vue.js'
+			'vue': 'vue/dist/vue.js',
+			'api' : path.resolve(__dirname,`./${platform}/src/api/index.js`),
 		}
 	}
 }
-
-
