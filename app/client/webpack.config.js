@@ -47,11 +47,10 @@ if(!['mobile','desktop'].includes(platform)){
 	return ;
 }
 
-
  //--配置
 module.exports = {
 	entry:Object.assign({ //--入口文件
-		"vendor":['vue','vuex','vue-router','element-ui']
+		"vendor":['vue','vuex','vue-router']
 	},getEntryFiles()),
 	
 	output:{ //---文件输出
@@ -71,7 +70,7 @@ module.exports = {
 				},
 				allChunks:true
 		}),
-		
+		//new webpack.optimize.UglifyJsPlugin(),  //--压缩文件
 		new webpack.LoaderOptionsPlugin({ //--配置stylus全局变量
 		    test: /\.vue/,
 		    stylus: {
@@ -99,18 +98,21 @@ module.exports = {
 					from : path.resolve(__dirname,`./${platform}/statics`),
 					to: path.resolve(__dirname,`../server/platform/${platform}/statics`)
 				},
-				{
-					from : path.resolve(__dirname,`./${platform}/views`),
-					to: path.resolve(__dirname,`../server/platform/${platform}/views`)
-				},	
+	
 				{
 					from : path.resolve(__dirname,`./favicon.ico`),
 					to: path.resolve(__dirname,`../server/`)
 				},
+
 				{
-					from : path.resolve(__dirname,`./${platform}/router.json`),
-					to: path.resolve(__dirname,`../server/platform/${platform}/`)
-				},				
+					from : path.resolve(__dirname,`./${platform}/src/views`),
+					to: path.resolve(__dirname,`../server/platform/${platform}/views`)
+				},	
+
+				{
+					from : path.resolve(__dirname,`./public/statics`),
+					to: path.resolve(__dirname,`../server/platform/public/statics/`)
+				},	
 		]),
 	],
 	
@@ -125,11 +127,16 @@ module.exports = {
 			},
 			
 			{
-				test: /\.css/,
+				test: /\.css$/,
 				use:[
-					{loader : "style-loader"},
-					{loader : "css-loader"},
-				]
+					{loader: 'style-loader'},
+					{
+						loader: 'css-loader',
+						options:{
+//							minimize:true,
+						}
+					},
+				],
 			},	
 			
             {
@@ -148,7 +155,7 @@ module.exports = {
 				test: /\.(png|jpg|gif|eot|ttf|woff|svg)$/,
 				loader:'url-loader',
 				options: {
-              		limit: 8192000,
+              		limit: 1,
               		name : "/[path][name].[ext]",
               		
             	}
@@ -159,7 +166,8 @@ module.exports = {
 	resolve: { //--处理报错： [Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.
 		alias: {
 			'vue': 'vue/dist/vue.js',
-			'api' : path.resolve(__dirname,`./${platform}/src/api/index.js`),
+			'api' : path.resolve(__dirname,`./public/api/index.js`),
+			'utils' : path.resolve(__dirname,`./public/utils/index.js`),
 		}
 	}
 }

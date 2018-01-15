@@ -1,6 +1,9 @@
+/*
+ 	happ app -m  
+ * */
+
 const fs = require('fs-extra');
 const path = require('path');
-
 
 module.exports = {
 	copyAppFiles(app,type){  //--copy app 需要文件
@@ -13,13 +16,13 @@ module.exports = {
 		}
 		
 		fs.ensureDirSync(target);
-		fs.copySync(`${src}/resource`,target);		
+		fs.copySync(`${src}/platform`,target);
 		console.log(`copy file success : ${target}`);
 	},
 	
 	copyPublicFiles(app){ //--复制公用文件
 		let src = `${app}/client`;
-		let files = ['.babelrc','favicon.ico','package.json','webpack.config.js','说明文件'];
+		let files = ['.babelrc','favicon.ico','package.json','webpack.config.js','说明文件','public'];
 		
 		fs.ensureDirSync(src);
 		
@@ -37,7 +40,6 @@ module.exports = {
 		let text = `1. 进入client目录,执行npm install 安装依赖包  \r\n2. 执行webpack --env.desktop -m  发布app到server目录  \r\n3. 进入server目录,执行 npm install 安装依赖包  \r\n4. 执行node server.js 开启服务器  \r\n5. 打开浏览器输入: loaclhost:18080;`
 		console.log(text);
 	},
-	
 	
 	mobile(app){  //--创建移动端app
 		module.exports.copyAppFiles(app,'mobile')

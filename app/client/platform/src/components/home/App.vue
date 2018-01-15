@@ -3,15 +3,9 @@
 	<div>
 		<p @click='click'>vuex：{{$store.state.name}}</p>
 		<p @click='login'>api：{{$store.state.name}}</p>
-		<p>用户类别：{{user.userType}}  <br />
-		</p>
-		<p v-for='item of labels'>
-			{{item.title}}
-			
-		</p>		
-		
+		<p>用户类别：{{user.userType}}  <br /></p>
+		<p v-for='item of labels'>{{item.title}}</p>	
 	</div>
-	
 </template>
 
 <script>
