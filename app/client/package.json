@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "webpack --env.d -w",
-    "deploy -m": "webpack --env.m  -w"
+    "deploy-mobile": "webpack --env.m  -w"
   },
   "author": "",
   "license": "ISC",
